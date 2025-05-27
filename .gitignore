@@ -58,9 +58,3 @@ node_modules/
 *.sln
 *.sw?
 # OS specific
-# Task files
-tasks.json
-tasks/
-
-# Include scripts directory
-!scripts/
