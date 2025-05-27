@@ -8,7 +8,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: 'Platforms Starter Kit',
+  title: 'ConvergX Starter Kit',
   description: 'Next.js template for building a multi-tenant SaaS.'
 };
 
