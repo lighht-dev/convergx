@@ -31,9 +31,12 @@ A production-ready example of a multi-tenant application built with Next.js 15, 
 
 ### Installation
 
-1. Clone the repository:   ```bash
+1. Clone the repository: ```bash
    git clone https://github.com/vercel/convergx.git
    cd convergx
+
+   ```
+
    ```
 
 2. Install dependencies:

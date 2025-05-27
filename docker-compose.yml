@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  convergx-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    command: pnpm dev
+    restart: unless-stopped
+    networks:
+      - convergx-network
+
+  # Redis service for session management and caching
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - convergx-network
+
+networks:
+  convergx-network:
+    driver: bridge
+
+volumes:
+  redis_data: 

@@ -4,16 +4,16 @@ import './globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin']
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
   title: 'ConvergX',
-  description: 'Next.js template for building a multi-tenant SaaS.'
+  description: 'Next.js template for building a multi-tenant SaaS.',
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {

@@ -3,59 +3,53 @@
 # Status: pending
 # Dependencies: 1
 # Priority: high
-# Description: Implement the core UI framework with shadcn/ui components, responsive layouts, and theme configuration according to the design principles outlined in the PRD.
+# Description: Implement the core UI framework with Material-UI components, responsive layouts, and theme configuration according to the design principles outlined in the PRD.
 # Details:
-Install shadcn/ui library and configure theme provider with Tailwind CSS. Implement light and dark theme modes as specified in FR-SET-001. Create responsive grid system based on 8-pixel grid with Tailwind breakpoints (sm: 640px, md: 768px, lg: 1024px, xl: 1280px). Set up color palette with professional blues and grays for primary scheme and status colors (green, yellow, red) for network states. Configure typography using Inter font family for general text and JetBrains Mono for technical data. Implement base layout components including header, sidebar navigation, and main content area. Create reusable UI components for cards, buttons, and form elements using shadcn/ui primitives and Radix UI.
+Install Material-UI (MUI) library and configure theme provider. Implement light and dark theme modes as specified in FR-SET-001. Create responsive grid system based on 8-pixel grid with breakpoints at 576px, 768px, 992px, and 1200px. Set up color palette with professional blues and grays for primary scheme and status colors (green, yellow, red) for network states. Configure typography using Inter font family for general text and JetBrains Mono for technical data. Implement base layout components including AppBar, Drawer, and main content area. Create reusable UI components for cards, buttons, and form elements following Material Design principles.
 
 # Test Strategy:
 Test responsive behavior across all specified breakpoints. Verify theme switching functionality between light and dark modes. Ensure accessibility compliance with WCAG 2.1 AA standards. Validate consistent spacing and alignment using the 8-pixel grid system. Test UI components across supported browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+).
 
 # Subtasks:
-## 1. Install shadcn/ui and Required Dependencies [pending]
+## 1. Install Material-UI and Required Dependencies [pending]
 ### Dependencies: None
-### Description: Set up shadcn/ui in the React project by installing Tailwind CSS, Radix UI, and shadcn/ui CLI.
+### Description: Set up Material-UI in the React project by installing the core library and its dependencies, including emotion and icons.
 ### Details:
-Install Tailwind CSS and its dependencies. Run npx shadcn-ui@latest init to set up the project configuration. Install required Radix UI primitives and class-variance-authority for component variants. Configure tailwind.config.js and globals.css for shadcn/ui integration.
+Run npm or yarn commands to install @mui/material, @emotion/react, @emotion/styled, and @mui/icons-material. Verify installation by checking package.json and importing a basic component.
 
 ## 2. Configure Theme Provider and Implement Theme Modes [pending]
 ### Dependencies: 2.1
-### Description: Set up next-themes provider and implement support for light and dark modes using shadcn/ui theming.
+### Description: Set up the ThemeProvider at the root of the application and implement support for light and dark modes.
 ### Details:
-Install and configure next-themes for theme management. Create CSS variables for light and dark themes in globals.css. Set up theme provider wrapper component. Implement theme toggle component using shadcn/ui Button and Moon/Sun icons. Configure Tailwind CSS for dark mode support with class strategy.
+Import createTheme and ThemeProvider from @mui/material/styles. Define theme objects for light and dark modes. Implement a toggle mechanism (e.g., button or context) to switch between modes. Wrap the app in ThemeProvider and pass the selected theme.
 
 ## 3. Set Up Color Palette and Typography [pending]
 ### Dependencies: 2.2
-### Description: Configure Tailwind CSS theme with custom color palette and typography settings for shadcn/ui.
+### Description: Customize the Material-UI theme with a tailored color palette and typography settings.
 ### Details:
-Extend tailwind.config.js to define custom color tokens for primary, secondary, accent, muted, and status colors. Configure typography plugin with Inter font for general text and JetBrains Mono for code/technical data. Set up CSS custom properties for consistent color usage across light and dark themes.
+Extend the theme configuration to define primary, secondary, error, warning, info, and success colors. Configure typography options such as font family, font sizes, and weights. Ensure Roboto font is loaded via Google Fonts in index.html.
 
 ## 4. Build Responsive Grid System [pending]
 ### Dependencies: 2.2
-### Description: Implement responsive grid system using Tailwind CSS Grid utilities for layout structure.
+### Description: Implement Material-UI's responsive grid system for layout structure.
 ### Details:
-Create reusable grid components using Tailwind CSS Grid and CSS Grid utilities. Define responsive breakpoints and spacing using Tailwind's responsive prefixes. Test grid behavior across different screen sizes and orientations. Create layout templates for common page structures.
+Use Material-UI's Grid component to create a flexible, responsive layout. Define breakpoints and spacing. Test grid behavior across different screen sizes and orientations.
 
 ## 5. Create Base Layout Components [pending]
 ### Dependencies: 2.4
-### Description: Develop foundational layout components such as Header, Sidebar, Footer, and Container using shadcn/ui.
+### Description: Develop foundational layout components such as AppBar, Drawer, Footer, and Container.
 ### Details:
-Build reusable layout components using shadcn/ui primitives and Radix UI components. Ensure components are responsive and integrate with the Tailwind grid system. Provide slots or props for content injection. Use shadcn/ui Sheet component for sidebar navigation and proper semantic HTML structure.
+Build reusable layout components using Material-UI primitives. Ensure components are responsive and integrate with the grid system. Provide slots or props for content injection.
 
 ## 6. Develop Reusable UI Components [pending]
 ### Dependencies: 2.3, 2.5
-### Description: Implement a library of reusable UI components (e.g., buttons, cards, dialogs) using shadcn/ui primitives.
+### Description: Implement a library of reusable UI components (e.g., buttons, cards, dialogs) following Material-UI guidelines.
 ### Details:
-Create components using shadcn/ui CLI to generate button, card, dialog, input, and other common components. Customize component styling using Tailwind CSS and CSS variables. Ensure components accept props for variants, sizes, and states. Follow shadcn/ui conventions for component composition and theming.
+Create custom-styled components using Material-UI's styling system. Ensure components accept props for customization and support theme overrides. Document usage and variations.
 
-## 7. Install and Configure Storybook [pending]
-### Dependencies: 2.1
-### Description: Set up Storybook for component development, testing, and documentation.
-### Details:
-Install Storybook using npx storybook@latest init. Configure Storybook to work with shadcn/ui themes by setting up theme decorators in .storybook/preview.js. Create stories for all reusable UI components to showcase different states and variations. Configure Storybook addons for accessibility testing, viewport testing, and controls. Set up automatic story generation and documentation extraction from component props.
-
-## 8. Ensure Accessibility Compliance [pending]
+## 7. Ensure Accessibility Compliance [pending]
 ### Dependencies: None
-### Description: Audit and enhance all components and layouts for accessibility, following WCAG and shadcn/ui best practices.
+### Description: Audit and enhance all components and layouts for accessibility, following WCAG and Material-UI best practices.
 ### Details:
-Use semantic HTML, ARIA attributes, and keyboard navigation. Test with screen readers and accessibility tools. Address color contrast, focus management, and alt text for icons/images. Leverage Radix UI's built-in accessibility features.
+Use semantic HTML, ARIA attributes, and keyboard navigation. Test with screen readers and accessibility tools. Address color contrast, focus management, and alt text for icons/images.
 
