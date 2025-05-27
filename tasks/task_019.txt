@@ -1,0 +1,49 @@
+# Task ID: 19
+# Title: User Settings and Preferences
+# Status: pending
+# Dependencies: 2, 3, 6
+# Priority: low
+# Description: Implement user settings management including API configuration, refresh intervals, theme selection, and local storage as specified in FR-SET-001 and FR-SET-002.
+# Details:
+Create user settings panel with all configurable parameters. Implement API configuration management for authorized users. Add data refresh interval settings with 5-second default. Create theme selection for light/dark modes. Implement demo mode toggle for testing. Add settings persistence using localStorage. Create settings export and import functionality. Implement settings validation to prevent invalid configurations. Add settings reset capability for default restoration.
+
+# Test Strategy:
+Test settings panel with all configuration options. Verify API configuration management for authorized users. Test refresh interval settings. Validate theme selection between light and dark modes. Test demo mode toggle. Verify settings persistence across sessions. Test export and import functionality. Ensure validation prevents invalid configurations. Test settings reset to defaults.
+
+# Subtasks:
+## 1. Design Settings Panel Information Architecture [pending]
+### Dependencies: None
+### Description: Create the information architecture for the settings panel by grouping categories and establishing visual hierarchy
+### Details:
+Conduct card sorting exercises to understand how users would group settings. Establish hierarchy among categories. Keep top-level categories to 4-5. Avoid jargon in naming. Group related settings together logically.
+
+## 2. Implement Settings UI Components [pending]
+### Dependencies: 19.1
+### Description: Develop the UI components needed for the settings panel including toggles, dropdowns, and input fields
+### Details:
+Create toggle switches with clear labels and visual feedback. Design dropdown menus with limited options (5-7) and sensible defaults. Ensure all UI elements are distinguishable and appear clickable. Provide clear descriptions for each setting.
+
+## 3. Develop API Configuration Interface [pending]
+### Dependencies: 19.2
+### Description: Create the interface for configuring API endpoints, authentication, and request parameters
+### Details:
+Build input fields for API URL, authentication tokens, and timeout values. Include validation for proper URL formatting. Add test connection functionality. Implement secure storage for API credentials.
+
+## 4. Implement Theme Selection and Customization [pending]
+### Dependencies: 19.2
+### Description: Create the UI and logic for theme selection, including light/dark mode and custom color options
+### Details:
+Design a theme preview component. Implement light/dark mode toggle. Add color picker for custom theme elements. Create theme persistence mechanism. Ensure all UI elements adapt properly to theme changes.
+
+## 5. Build Settings Persistence and Reset Functionality [pending]
+### Dependencies: 19.3, 19.4
+### Description: Implement mechanisms to save settings, export/import configurations, and reset to defaults
+### Details:
+Create local storage mechanism for settings persistence. Implement export functionality to JSON format. Build import capability with validation. Add 'Reset to Defaults' option with confirmation dialog. Test persistence across sessions.
+
+## 6. Develop Demo Mode and Refresh Interval Controls [pending]
+### Dependencies: 19.2, 19.5
+### Description: Implement demo mode toggle and refresh interval configuration with validation
+### Details:
+Create demo mode toggle with clear indicator when active. Implement numeric input for refresh interval with validation for minimum/maximum values. Add dropdown for interval units (seconds/minutes). Provide visual feedback when settings are applied.
+
