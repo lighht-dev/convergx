@@ -6,8 +6,15 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { rootDomain, protocol } from '@/lib/utils';
 
+type ActionState = {
+  success?: boolean;
+  error?: string;
+  subdomain?: string;
+  icon?: string;
+} | null;
+
 export async function createSubdomainAction(
-  prevState: any,
+  prevState: ActionState,
   formData: FormData
 ) {
   const subdomain = formData.get('subdomain') as string;
@@ -59,7 +66,7 @@ export async function createSubdomainAction(
 }
 
 export async function deleteSubdomainAction(
-  prevState: any,
+  prevState: { success?: string } | null,
   formData: FormData
 ) {
   const subdomain = formData.get('subdomain');

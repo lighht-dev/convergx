@@ -97,7 +97,10 @@ export const config: Config = {
   appUrl: getEnvVar('NEXT_PUBLIC_APP_URL', 'http://localhost:3000'),
 
   // Database
-  databaseUrl: getEnvVar('DATABASE_URL', 'postgresql://localhost:5432/convergx'),
+  databaseUrl: getEnvVar(
+    'DATABASE_URL',
+    'postgresql://localhost:5432/convergx'
+  ),
   databasePoolSize: getEnvNumber('DATABASE_POOL_SIZE', 10),
 
   // Redis
@@ -106,16 +109,25 @@ export const config: Config = {
   redisDb: getEnvNumber('REDIS_DB', 0),
 
   // Authentication
-  nextAuthSecret: getEnvVar('NEXTAUTH_SECRET', 'development-secret-change-in-production'),
+  nextAuthSecret: getEnvVar(
+    'NEXTAUTH_SECRET',
+    'development-secret-change-in-production'
+  ),
   nextAuthUrl: getEnvVar('NEXTAUTH_URL', 'http://localhost:3000'),
-  jwtSecret: getEnvVar('JWT_SECRET', 'development-jwt-secret-change-in-production'),
+  jwtSecret: getEnvVar(
+    'JWT_SECRET',
+    'development-jwt-secret-change-in-production'
+  ),
 
   // Session
   sessionTimeout: getEnvNumber('SESSION_TIMEOUT', 3600),
   sessionSecure: getEnvBoolean('SESSION_SECURE', false),
 
   // Network API
-  networkApiBaseUrl: getEnvVar('NETWORK_API_BASE_URL', 'https://api.example.com'),
+  networkApiBaseUrl: getEnvVar(
+    'NETWORK_API_BASE_URL',
+    'https://api.example.com'
+  ),
   networkApiKey: getEnvVar('NETWORK_API_KEY', 'development-api-key'),
   networkApiTimeout: getEnvNumber('NETWORK_API_TIMEOUT', 30000),
 
@@ -134,7 +146,12 @@ export const config: Config = {
   // File Upload
   maxFileSize: getEnvNumber('MAX_FILE_SIZE', 10485760), // 10MB
   uploadDir: getEnvVar('UPLOAD_DIR', './uploads'),
-  allowedFileTypes: getEnvArray('ALLOWED_FILE_TYPES', ['.pdf', '.csv', '.xlsx', '.json']),
+  allowedFileTypes: getEnvArray('ALLOWED_FILE_TYPES', [
+    '.pdf',
+    '.csv',
+    '.xlsx',
+    '.json',
+  ]),
 
   // Rate Limiting
   rateLimitEnabled: getEnvBoolean('RATE_LIMIT_ENABLED', true),
@@ -149,7 +166,9 @@ export function validateConfig(): void {
   // Validate required production settings
   if (config.nodeEnv === 'production') {
     if (config.nextAuthSecret === 'development-secret-change-in-production') {
-      errors.push('NEXTAUTH_SECRET must be set to a secure value in production');
+      errors.push(
+        'NEXTAUTH_SECRET must be set to a secure value in production'
+      );
     }
     if (config.jwtSecret === 'development-jwt-secret-change-in-production') {
       errors.push('JWT_SECRET must be set to a secure value in production');
@@ -178,7 +197,9 @@ export function validateConfig(): void {
   }
 
   if (config.sessionTimeout < 300 || config.sessionTimeout > 86400) {
-    errors.push('SESSION_TIMEOUT must be between 300 (5 min) and 86400 (24 hours)');
+    errors.push(
+      'SESSION_TIMEOUT must be between 300 (5 min) and 86400 (24 hours)'
+    );
   }
 
   if (errors.length > 0) {
@@ -210,4 +231,4 @@ if (typeof window === 'undefined') {
       process.exit(1);
     }
   }
-} 
+}
