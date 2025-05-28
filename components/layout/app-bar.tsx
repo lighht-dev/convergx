@@ -28,16 +28,30 @@ export function AppBar({
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <MuiAppBar position="sticky" elevation={1}>
+    <MuiAppBar 
+      position="sticky" 
+      elevation={1}
+      component="header"
+      role="banner"
+    >
       <Toolbar>
         {/* Menu button for mobile/drawer toggle */}
         {showMenuButton && (
           <IconButton
             edge="start"
             color="inherit"
-            aria-label="menu"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navigation-drawer"
             onClick={onMenuClick}
-            sx={{ mr: 2 }}
+            sx={{ 
+              mr: 2,
+              '&:focus-visible': {
+                outline: '2px solid',
+                outlineColor: 'common.white',
+                outlineOffset: '2px',
+              }
+            }}
           >
             <MenuIcon />
           </IconButton>
@@ -46,7 +60,7 @@ export function AppBar({
         {/* App title */}
         <Typography 
           variant="h6" 
-          component="div" 
+          component="h1" 
           sx={{ 
             flexGrow: 1,
             fontWeight: 600,
@@ -56,10 +70,28 @@ export function AppBar({
         </Typography>
 
         {/* Right side actions */}
-        <Box display="flex" alignItems="center" gap={1}>
+        <Box 
+          display="flex" 
+          alignItems="center" 
+          gap={1}
+          component="nav"
+          role="navigation"
+          aria-label="User actions"
+        >
           {/* Notifications - hide on mobile */}
           {!isMobile && (
-            <IconButton color="inherit" aria-label="notifications">
+            <IconButton 
+              color="inherit" 
+              aria-label="View notifications"
+              aria-describedby="notifications-tooltip"
+              sx={{
+                '&:focus-visible': {
+                  outline: '2px solid',
+                  outlineColor: 'common.white',
+                  outlineOffset: '2px',
+                }
+              }}
+            >
               <Notifications />
             </IconButton>
           )}
@@ -68,7 +100,18 @@ export function AppBar({
           <ThemeToggle />
 
           {/* User account */}
-          <IconButton color="inherit" aria-label="account">
+          <IconButton 
+            color="inherit" 
+            aria-label="Open user account menu"
+            aria-describedby="account-tooltip"
+            sx={{
+              '&:focus-visible': {
+                outline: '2px solid',
+                outlineColor: 'common.white',
+                outlineOffset: '2px',
+              }
+            }}
+          >
             <AccountCircle />
           </IconButton>
         </Box>

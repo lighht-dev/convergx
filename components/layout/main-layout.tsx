@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Box, Container, useTheme, useMediaQuery } from '@mui/material';
 import { AppBar } from './app-bar';
 import { NavigationDrawer } from './navigation-drawer';
+import { SkipLink } from '@/components/ui/skip-link';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -32,6 +33,11 @@ export function MainLayout({
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
+      {/* Skip Navigation Link */}
+      <SkipLink href="#main-content">
+        Skip to main content
+      </SkipLink>
+
       {/* App Bar */}
       <AppBar 
         title={title}
@@ -49,6 +55,10 @@ export function MainLayout({
       {/* Main content area */}
       <Box
         component="main"
+        id="main-content"
+        tabIndex={-1}
+        role="main"
+        aria-label="Main content"
         sx={{
           flexGrow: 1,
           display: 'flex',
@@ -59,6 +69,9 @@ export function MainLayout({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
           }),
+          '&:focus': {
+            outline: 'none',
+          },
           ...(drawerOpen && !isMobile && {
             marginLeft: '280px', // Drawer width
             transition: theme.transitions.create(['margin'], {
